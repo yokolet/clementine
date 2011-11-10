@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Yoko Harada"]
   s.email       = ["yokolet@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{clojurescript compiler gem}
-  s.description = %q{clojurescript compiler gem}
+  s.summary     = %q{clojurescript tilt template gem}
+  s.description = %q{clojurescript tilt template gem}
 
   s.rubyforge_project = "clementine"
 
