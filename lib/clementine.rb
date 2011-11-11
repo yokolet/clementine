@@ -12,4 +12,5 @@ if defined?(RUBY_ENGINE) && RUBY_ENGINE == "jruby"
 
   require "clementine/clojurescript_engine"
   require "clementine/clojurescript_template"
+  require "clementine/clementine_rails" if defined?(Rails)
 end

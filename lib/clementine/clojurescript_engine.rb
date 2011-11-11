@@ -1,4 +1,3 @@
-require 'java'
 %w{RT Keyword PersistentHashMap}.each do |name|
   java_import "clojure.lang.#{name}"
 end
@@ -11,7 +10,7 @@ module Clementine
     end
 
     def compile
-      cl_opts = PersistentHashMap.create(convert_options())
+      cl_opts = PersistentHashMap.create(convert_options)
       RT.loadResourceScript("cljs/closure.clj")
       builder = RT.var("cljs.closure", "build")
       builder.invoke(@file, cl_opts)
@@ -29,7 +28,13 @@ module Clementine
         end
         opts[cl_key] = cl_value
       end
-      opts
+      opts.empty? ? default_opts : opts
+    end
+
+    def default_opts
+      cl_key = Keyword.intern("optimizations")
+      cl_value = Keyword.intern("advanced")
+      {cl_key => cl_value}
     end
   end
 end
