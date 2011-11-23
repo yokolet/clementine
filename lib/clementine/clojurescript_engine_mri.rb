@@ -7,14 +7,13 @@ module Clementine
       @options = options
       # FIXME - ugly hack to override options
       @options = ["'{:output-dir \"public/assets\"}'"]
-      @java = JAVA_COMMAND
       @classpath = CLASSPATH
     end
 
     def compile
       begin
-        puts "RUNNING: #{command} #{@file} #{@options} 2>&1"
-        result = `#{command} #{@file} #{@options} 2>&1`
+        cmd = "#{command} #{@file} #{@options} 2>&1"
+        result = `#{cmd}`
       rescue Exception
         raise Error, "compression failed: #{result}"
       end
@@ -24,8 +23,27 @@ module Clementine
       result
     end
 
+    def nailgun_prefix
+      server_address = Nailgun::NailgunConfig.options[:server_address]
+      port_no  = Nailgun::NailgunConfig.options[:port_no]
+      "#{Nailgun::NgCommand::NGPATH} --nailgun-port #{port_no} --nailgun-server #{server_address}"
+    end
+
+    def setup_classpath_for_ng
+      current_cp = `#{nailgun_prefix} ng-cp`
+      unless current_cp.include? "clojure.jar"
+        puts "Initializing nailgun classpath, required clementine dependencies missing"
+        `#{nailgun_prefix} ng-cp #{@classpath.join " "}`
+      end
+    end
+
     def command
-      [@java, '-cp', "\"#{@classpath.join ":"}\"", 'clojure.main', "#{CLOJURESCRIPT_HOME}/bin/cljsc.clj"].flatten.join(' ')
+      if defined? Nailgun
+        setup_classpath_for_ng
+        [nailgun_prefix, 'clojure.main', "#{CLOJURESCRIPT_HOME}/bin/cljsc.clj"].flatten.join(' ')
+      else
+        ["java", '-cp', "\"#{@classpath.join ":"}\"", 'clojure.main', "#{CLOJURESCRIPT_HOME}/bin/cljsc.clj"].flatten.join(' ')
+      end
     end
   end
 end
