@@ -1,4 +1,13 @@
 module Clementine
+
+  # example
+  #   Clementine.options = ":optimizations :whitespace"
+  module Options
+    @options = ""
+    attr_accessor :options
+  end
+  extend Options
+
   class Error < StandardError; end
 
   class ClojureScriptEngine
@@ -6,7 +15,7 @@ module Clementine
       @file = file
       @options = options
       # FIXME - ugly hack to override options
-      @options = ["'{:output-dir \"public/assets\"}'"]
+      @options = ["'{:output-dir \"public/assets\" #{Clementine.options}}'"]
       @classpath = CLASSPATH
     end
 
