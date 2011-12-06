@@ -42,10 +42,11 @@ Clementine.options[:output_dir] = "assets/javascripts"
 
 Available options:
 
+```
   KEY                VALUES
   ------------------ -----------------------
   :optimazation      :simple,:whitespace,:advanced
   :target            :nodejs
   :output_dir        directory name (:output_dir will be converted to ":output-dir")
   :output_to         file name (:output_to will be converted to ":output-to")
-
+```
