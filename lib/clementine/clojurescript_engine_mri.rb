@@ -1,27 +1,18 @@
 module Clementine
 
-  # example
-  #   Clementine.options = ":optimizations :whitespace"
-  module Options
-    @options = ""
-    attr_accessor :options
-  end
-  extend Options
-
   class Error < StandardError; end
 
   class ClojureScriptEngine
     def initialize(file, options)
       @file = file
       @options = options
-      # FIXME - ugly hack to override options
-      @options = ["'{:output-dir \"public/assets\" #{Clementine.options}}'"]
       @classpath = CLASSPATH
     end
 
     def compile
+      @options = Clementine.options if @options.empty?
       begin
-        cmd = "#{command} #{@file} #{@options} 2>&1"
+        cmd = "#{command} #{@file} #{convert_options(@options)} 2>&1"
         result = `#{cmd}`
       rescue Exception
         raise Error, "compression failed: #{result}"
@@ -53,6 +44,22 @@ module Clementine
       else
         ["java", '-cp', "\"#{@classpath.join ":"}\"", 'clojure.main', "#{CLOJURESCRIPT_HOME}/bin/cljsc.clj"].flatten.join(' ')
       end
+    end
+
+    private
+    def convert_options(options)
+      opts = ""
+      options.each do |k, v|
+        cl_key = ":" + Clementine.ruby2clj(k.to_s)
+        case
+          when (v.kind_of? Symbol)
+            cl_value = ":" + Clementine.ruby2clj(v.to_s)
+          else
+            cl_value = "\"" + v + "\""
+        end
+        opts += cl_key + " " + cl_value + " "
+      end
+      opts.chop!
     end
   end
 end

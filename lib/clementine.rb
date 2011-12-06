@@ -1,5 +1,6 @@
 require 'rubygems'
 require "clementine/version"
+require 'clementine/options'
 
 if defined?(RUBY_ENGINE) && RUBY_ENGINE == "jruby"
   require "java"
