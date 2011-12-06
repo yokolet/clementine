@@ -7,11 +7,9 @@ Gem::Specification.new do |s|
   s.version     = Clementine::VERSION
   s.authors     = ["Yoko Harada"]
   s.email       = ["yokolet@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/yokolet/clementine"
   s.summary     = %q{clojurescript tilt template gem}
-  s.description = %q{clojurescript tilt template gem}
-
-  s.rubyforge_project = "clementine"
+  s.description = %q{clojurescript tilt template gem and available to use on Rails asset pipeline.}
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

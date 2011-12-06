@@ -19,13 +19,8 @@ Clementine supports JRuby and CRuby. When you use from CRuby, make sure java com
 Installation
 -----------
 
-Clone https://github.com/yokolet/clementine, then
-edit your Gemfile with specific path to Clemetine.
-
-For example:
-
 ```ruby
-gem 'clementine', :path => "/Users/yoko/Projects/clementine"
+gem install clementine
 ```
 
 Configuration
