@@ -23,6 +23,7 @@ Clone https://github.com/yokolet/clementine, then
 edit your Gemfile with specific path to Clemetine.
 
 For example:
+
 ```ruby
 gem 'clementine', :path => "/Users/yoko/Projects/clementine"
 ```
@@ -33,12 +34,14 @@ Configuration
 Create clementine.rb file in your ${Rails.root}/config/initializer directory.
 
 Examples:
+
 ```ruby
 Clementine.options[:optimizations] = :simple
 Clementine.options[:output_dir] = "assets/javascripts"
 ```
 
 Available options:
+
   KEY                VALUES
   ------------------ -----------------------
   :optimazation      :simple,:whitespace,:advanced
