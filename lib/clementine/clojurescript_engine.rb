@@ -18,26 +18,32 @@ module Clementine
       builder.invoke(@file, cl_opts)
     end
 
-    private
+    #private
     def convert_options(options)
-    opts = {}
-    options.each do |k, v|
-      cl_key = Keyword.intern(Clementine.ruby2clj(k.to_s))
-      case
-        when (v.kind_of? Symbol)
-          cl_value = Keyword.intern(Clementine.ruby2clj(v.to_s))
-        else
-          cl_value = "\"" + v + "\""
+      opts = {}
+      options = options.empty? ? default_opts : options
+      options.each do |k, v|
+        cl_key = Keyword.intern(Clementine.ruby2clj(k.to_s))
+        case
+          when (v.kind_of? Symbol)
+            cl_value = Keyword.intern(Clementine.ruby2clj(v.to_s))
+          else
+            cl_value = v
+        end
+        opts[cl_key] = cl_value
       end
-      opts[cl_key] = cl_value
-    end
-    opts.empty? ? default_opts : opts
+      opts
     end
 
     def default_opts
-      cl_key = Keyword.intern("optimizations")
-      cl_value = Keyword.intern("advanced")
-      {cl_key => cl_value}
+      key = "output_dir"
+      value = ""
+      if defined?(Rails)
+        value = File.join(Rails.root, "app", "assets", "javascripts", "clementine")
+      else
+        value = Dir.pwd
+      end
+      {key => value}
     end
   end
 end
