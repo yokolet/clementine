@@ -37,7 +37,7 @@ class ClojureScriptEngineTest < Test::Unit::TestCase
     options = {:optimizations => :advanced,  :output_dir => "#{Dir.pwd}"}
     engine = Clementine::ClojureScriptEngine.new("", "")
     opts = engine.convert_options(options)
-    map = PersistentHashMap.create(convert_options(opts))
+    map = PersistentHashMap.create(opts)
     map.each do |k, v|
       assert_equal Java::clojure.lang.Keyword, k.class
       assert k.to_s == ":optimizations" || k.to_s == ":output-dir"
