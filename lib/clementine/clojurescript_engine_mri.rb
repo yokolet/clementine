@@ -12,10 +12,10 @@ module Clementine
     def compile
       @options = Clementine.options if @options.empty?
       begin
-        cmd = "#{command} #{@file} #{convert_options(@options)} 2>&1"
+        cmd = %Q{#{command} #{@file} '#{convert_options(@options)}' 2>&1}
         result = `#{cmd}`
       rescue Exception
-        raise Error, "compression failed: #{result}"
+        raise Error, "compression failed: #{result || $!}"
       end
       unless $?.exitstatus.zero?
         raise Error, result
@@ -46,20 +46,22 @@ module Clementine
       end
     end
 
-    private
+    # private
     def convert_options(options)
       opts = ""
       options.each do |k, v|
         cl_key = ":" + Clementine.ruby2clj(k.to_s)
         case
-          when (v.kind_of? Symbol)
-            cl_value = ":" + Clementine.ruby2clj(v.to_s)
-          else
-            cl_value = "\"" + v + "\""
+        when (v.kind_of? Symbol)
+          cl_value = ":" + Clementine.ruby2clj(v.to_s)
+        when v.is_a?(TrueClass) || v.is_a?(FalseClass)
+          cl_value = v.to_s
+        else
+          cl_value = "\"" + v + "\""
         end
         opts += cl_key + " " + cl_value + " "
       end
-      opts.chop!
+      "{" + opts.chop! + "}"
     end
   end
 end
