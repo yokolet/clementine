@@ -63,5 +63,17 @@ module Clementine
       end
       "{" + opts.chop! + "}"
     end
+
+    # TODO: this is pasted from ClojureScriptEngine. let's fix that.
+    def default_opts
+      key = "output_dir"
+      value = ""
+      if defined?(Rails)
+        value = File.join(Rails.root, "app", "assets", "javascripts", "clementine")
+      else
+        value = Dir.pwd
+      end
+      {key => value}
+    end
   end
 end
