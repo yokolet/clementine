@@ -1,8 +1,9 @@
-module Clementine
+require 'clementine/clojurescript_engine/base'
 
+module Clementine
   class Error < StandardError; end
 
-  class ClojureScriptEngine
+  class ClojureScriptEngine < ClojureScriptEngineBase
     def initialize(file, options)
       @file = file
       @options = options
@@ -62,18 +63,6 @@ module Clementine
         opts += cl_key + " " + cl_value + " "
       end
       "{" + opts.chop! + "}"
-    end
-
-    # TODO: this is pasted from ClojureScriptEngine. let's fix that.
-    def default_opts
-      key = "output_dir"
-      value = ""
-      if defined?(Rails)
-        value = File.join(Rails.root, "app", "assets", "javascripts", "clementine")
-      else
-        value = Dir.pwd
-      end
-      {key => value}
     end
   end
 end

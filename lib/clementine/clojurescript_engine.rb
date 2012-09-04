@@ -1,49 +1,20 @@
-%w{RT Keyword PersistentHashMap}.each do |name|
-  java_import "clojure.lang.#{name}"
+if defined?(RUBY_ENGINE) && RUBY_ENGINE == "jruby"
+  require "java"
+
+  CLOJURESCRIPT_HOME = File.join(File.dirname(__FILE__), "../../vendor/assets")
+  $: << CLOJURESCRIPT_HOME + "/lib"
+  require 'clojure'
+
+  %w{compiler.jar goog.jar js.jar}.each {|name| $CLASSPATH << CLOJURESCRIPT_HOME + "/lib/" + name}
+  %w{clj cljs}.each {|path| $CLASSPATH << CLOJURESCRIPT_HOME + "/src/" + path}
+
+  require "clementine/clojurescript_engine/jruby"
 end
 
-module Clementine
-
-  class ClojureScriptEngine
-    def initialize(file, options)
-      @file = file
-      @options = options
-    end
-
-    def compile
-      @options = Clementine.options if @options.empty?
-      cl_opts = PersistentHashMap.create(convert_options(@options))
-      RT.loadResourceScript("cljs/closure.clj")
-      builder = RT.var("cljs.closure", "build")
-      builder.invoke(@file, cl_opts)
-    end
-
-    #private
-    def convert_options(options)
-      opts = {}
-      options = options.empty? ? default_opts : options
-      options.each do |k, v|
-        cl_key = Keyword.intern(Clementine.ruby2clj(k.to_s))
-        case
-          when (v.kind_of? Symbol)
-            cl_value = Keyword.intern(Clementine.ruby2clj(v.to_s))
-          else
-            cl_value = v
-        end
-        opts[cl_key] = cl_value
-      end
-      opts
-    end
-
-    def default_opts
-      key = "output_dir"
-      value = ""
-      if defined?(Rails)
-        value = File.join(Rails.root, "app", "assets", "javascripts", "clementine")
-      else
-        value = Dir.pwd
-      end
-      {key => value}
-    end
-  end
+if defined?(RUBY_ENGINE) && RUBY_ENGINE == "ruby"
+  CLOJURESCRIPT_HOME = File.join(File.dirname(__FILE__), "../../vendor/assets")
+  CLASSPATH = []
+  %w{clojure.jar compiler.jar goog.jar js.jar}.each {|name| CLASSPATH << CLOJURESCRIPT_HOME + "/lib/" + name}
+  %w{clj cljs}.each {|path| CLASSPATH << CLOJURESCRIPT_HOME + "/src/" + path}
+  require "clementine/clojurescript_engine/mri"
 end

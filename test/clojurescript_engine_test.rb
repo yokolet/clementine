@@ -14,11 +14,7 @@ class ClojureScriptEngineTest < Test::Unit::TestCase
   # to set up fixture information.
   def setup
     require "#{File.join(File.dirname(__FILE__), "..", "lib", "clementine")}"
-    if jruby?
-      require "#{File.join(File.dirname(__FILE__), "..", "lib", "clementine", "clojurescript_engine")}"
-    else
-      require "#{File.join(File.dirname(__FILE__), "..", "lib", "clementine", "clojurescript_engine_mri")}"
-    end
+    require "#{File.join(File.dirname(__FILE__), "..", "lib", "clementine", "clojurescript_engine")}"
   end
 
   # Called after every test method runs. Can be used to tear
