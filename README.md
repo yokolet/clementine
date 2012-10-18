@@ -45,3 +45,13 @@ Available options:
   :output_dir        directory name (:output_dir will be converted to ":output-dir")
   :output_to         file name (:output_to will be converted to ":output-to")
 ```
+
+Copyright and License
+-----------
+Clementine is Copyright (c) 2011-2012 [Yoko Harada](https://github.com/yokolet) and
+distributed under the MIT license.
+
+Clojure and ClojureSript are Copyright (c) Rich Hickey and covered by the Eclipse
+Public License 1.0 [http://opensource.org/licenses/eclipse-1.0.php](http://opensource.org/licenses/eclipse-1.0.php)
+
+Google Closure Compiler and Library are covered by Apache License 2.0 license.
