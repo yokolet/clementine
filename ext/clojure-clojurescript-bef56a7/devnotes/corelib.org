@@ -1,0 +1,583 @@
+* DONE *
+* *'
+* DONE *1
+* DONE *2
+* DONE *3
+* *agent*
+* *allow-unresolved-vars*
+* *assert*
+* *clojure-version*
+* *command-line-args*
+* *compile-files*
+* *compile-path*
+* TODO *e
+* *err*
+* *file*
+* *flush-on-newline*
+* *fn-loader*
+* *in*
+* *math-context*
+* *ns*
+* *out*
+* *print-dup*
+* *print-length*
+* *print-level*
+* *print-meta*
+* *print-readably*
+* *read-eval*
+* *source-path*
+* TODO *unchecked-math*
+does what?
+* *use-context-classloader*
+* *verbose-defrecords*
+* *warn-on-reflection*
+* DONE +
+* +'
+* DONE -
+* -'
+* DONE ->
+* DONE ->>
+* ->ArrayChunk
+* ->Vec
+* ->VecNode
+* ->VecSeq
+* -cache-protocol-fn
+* -reset-methods
+* DONE ..
+* DONE /
+* DONE <
+* DONE <=
+* DONE =
+* DONE ==
+* DONE >
+* DONE >=
+* EMPTY-NODE
+* accessor
+* DONE aclone
+* add-classpath
+* add-watch
+* agent
+* agent-error
+* agent-errors
+* DONE aget
+* DONE alength
+* TODO alias
+* all-ns
+* alter
+* DONE alter-meta!
+* alter-var-root
+* DONE amap
+* DONE ancestors
+* DONE and
+* DONE apply
+* DONE areduce
+* DONE array-map
+* DONE aset
+* aset-boolean
+* aset-byte
+* aset-char
+* aset-double
+* aset-float
+* aset-int
+* aset-long
+* aset-short
+* DONE assert
+* DONE assoc
+* DONE assoc!
+* DONE assoc-in
+* DONE associative?
+* DONE atom
+* await
+* await-for
+* await1
+* bases
+* bean
+* bigdec
+* TODO bigint
+* biginteger
+* DONE binding
+* DONE bit-and
+* DONE bit-and-not
+* DONE bit-clear
+* DONE bit-flip
+* DONE bit-not
+* DONE bit-or
+* DONE bit-set
+* DONE bit-shift-left
+* DONE bit-shift-right
+* DONE bit-test
+* DONE bit-xor
+* DONE boolean
+* boolean-array
+* booleans
+* bound-fn
+* bound-fn*
+* bound?
+* DONE butlast
+* TODO byte
+* byte-array
+* bytes
+* DONE case
+* cast
+* char
+* char-array
+* char-escape-string
+* char-name-string
+* char?
+* chars
+* chunk
+* chunk-append
+* chunk-buffer
+* chunk-cons
+* chunk-first
+* chunk-next
+* chunk-rest
+* chunked-seq?
+* class
+* class?
+* clear-agent-errors
+* clojure-version
+* DONE coll?
+* DONE comment
+* commute
+* DONE comp
+* TODO comparator
+* DONE compare
+* DONE compare-and-set!
+* compile
+* DONE complement
+* DONE concat
+* DONE cond
+* DONE condp
+* DONE conj
+* DONE conj!
+* DONE cons
+* DONE constantly
+* construct-proxy
+* DONE contains?
+* DONE count
+* DONE counted?
+* create-ns
+* create-struct
+* DONE cycle
+* DONE dec
+* dec'
+* decimal?
+* DONE declare
+* definline
+* definterface
+* DONE defmacro
+* DONE defmethod
+* DONE defmulti
+* DONE defn
+* DONE defn-
+* defonce
+* DONE defprotocol
+* DONE defrecord
+* defstruct
+* DONE deftype
+* DONE delay
+* DONE delay?
+* deliver
+* TODO denominator
+* DONE deref
+* DONE derive
+* DONE descendants
+* DONE destructure
+For macros only, uses clojure.core version
+* DONE disj
+* DONE disj!
+* DONE dissoc
+* DONE dissoc!
+* DONE distinct
+* DONE distinct?
+* DONE doall
+* DONE dorun
+* DONE doseq
+* dosync
+* DONE dotimes
+* DONE doto
+* TODO double
+* DONE double-array
+* TODO doubles
+* DONE drop
+* DONE drop-last
+* DONE drop-while
+* DONE empty
+* DONE empty?
+* ensure
+* enumeration-seq
+* error-handler
+* error-mode
+* eval
+* DONE even?
+* DONE every-pred
+* DONE every?
+* TODO extend
+  maybe not?
+* DONE extend-protocol
+macro currently expands into extend call
+* DONE extend-type
+* extenders
+* extends?
+* DONE false?
+* DONE ffirst
+* file-seq
+* DONE filter
+* DONE find
+* TODO find-keyword
+* find-ns
+* find-protocol-impl
+* find-protocol-method
+* find-var
+* DONE first
+* DONE flatten
+* float
+* float-array
+* float?
+* floats
+* flush
+* DONE fn
+* DONE fn?
+* DONE fnext
+* DONE fnil
+* DONE for
+* DONE force
+* format
+* DONE frequencies
+* future
+* future-call
+* future-cancel
+* future-cancelled?
+* future-done?
+* future?
+* gen-class
+* gen-interface
+* DONE gensym
+* DONE get
+* DONE get-in
+* DONE get-method
+* get-proxy-class
+* get-thread-bindings
+* DONE get-validator
+* DONE group-by
+* DONE hash
+* DONE hash-combine
+* DONE hash-map
+* TODO hash-set
+* DONE identical?
+* DONE identity
+* DONE if-let
+* DONE if-not
+* DONE ifn?
+* import
+* DONE in-ns
+* DONE inc
+* inc'
+* init-proxy
+* DONE instance?
+does what?
+* DONE int
+* int-array
+* DONE integer?
+* DONE interleave
+* intern
+* DONE interpose
+* DONE into
+* DONE into-array
+* ints
+* io!
+* DONE isa?
+does what?
+* DONE iterate
+* iterator-seq
+* DONE juxt
+* DONE keep
+* DONE keep-indexed
+* DONE key
+* DONE keys
+* DONE keyword
+* DONE keyword?
+* DONE last
+* TODO lazy-cat
+* DONE lazy-seq
+* DONE let
+* DONE letfn
+** TODO needs compiler letfn*
+* line-seq
+* DONE list
+* DONE list*
+* DONE list?
+* load
+* DONE load-file
+* load-reader
+* load-string
+* loaded-libs
+* locking
+* DONE long
+* DONE long-array
+* TODO longs
+* DONE loop
+* macroexpand
+* macroexpand-1
+* DONE make-array
+* DONE make-hierarchy
+* DONE map
+* DONE map-indexed
+* DONE map?
+* DONE mapcat
+* DONE max
+* DONE max-key
+* memfn
+* DONE memoize
+* DONE merge
+* DONE merge-with
+* DONE meta
+* method-sig
+* DONE methods
+* DONE min
+* DONE min-key
+* DONE mod
+* munge
+* DONE name
+* DONE namespace
+* namespace-munge
+* DONE neg?
+* newline
+* DONE next
+* DONE nfirst
+* DONE nil?
+* DONE nnext
+* DONE not
+* DONE not-any?
+* DONE not-empty
+* DONE not-every?
+* DONE not=
+* DONE ns
+* ns-aliases
+* ns-imports
+* ns-interns
+* ns-map
+* ns-name
+* ns-publics
+* ns-refers
+* ns-resolve
+* ns-unalias
+* ns-unmap
+* DONE nth
+* DONE nthnext
+* TODO num
+* DONE number?
+* TODO numerator
+* DONE object-array
+* DONE odd?
+* DONE or
+* DONE parents
+* DONE partial
+* DONE partition
+* DONE partition-all
+* DONE partition-by
+* pcalls
+* DONE peek
+* DONE persistent!
+* pmap
+* DONE pop
+* DONE pop!
+* pop-thread-bindings
+* DONE pos?
+* DONE pr
+dunno about printing
+* DONE pr-str
+* DONE prefer-method
+* DONE prefers
+* primitives-classnames
+* DONE print
+* print-ctor
+* TODO print-dup
+* TODO print-method
+* TODO print-simple
+* DONE print-str
+* printf
+* DONE println
+* DONE println-str
+* DONE prn
+* DONE prn-str
+* promise
+* proxy
+* proxy-call-with-super
+* proxy-mappings
+* proxy-name
+* proxy-super
+* push-thread-bindings
+* pvalues
+* DONE quot
+* DONE rand
+* DONE rand-int
+* DONE rand-nth
+* DONE range
+* TODO ratio?
+* TODO rational?
+* TODO rationalize
+* DONE re-find
+dunno about regex
+* re-groups
+* re-matcher
+* DONE re-matches
+* DONE re-pattern
+* DONE re-seq
+* read
+* read-line
+* read-string
+* DONE realized?
+* DONE reduce
+* DONE reductions
+* ref
+* ref-history-count
+* ref-max-history
+* ref-min-history
+* ref-set
+* refer
+* refer-clojure
+* DONE reify
+* TODO specify - make a particular object extend a protocol
+* release-pending-sends
+* DONE rem
+* DONE remove
+* DONE remove-all-methods
+* DONE remove-method
+* remove-ns
+* remove-watch
+* DONE repeat
+* DONE repeatedly
+* DONE replace
+* DONE replicate
+* TODO require
+ticket #8
+* DONE reset!
+* reset-meta!
+* resolve
+* DONE rest
+* restart-agent
+* resultset-seq
+* DONE reverse
+* DONE reversible?
+* DONE rseq
+* DONE rsubseq
+* DONE satisfies?
+as macro
+* DONE second
+* DONE select-keys
+* send
+* send-off
+* DONE seq
+* DONE seq?
+* seque
+* TODO sequence
+* DONE sequential?
+* DONE set
+* set-error-handler!
+* set-error-mode!
+* set-validator!
+* DONE set?
+* short
+* short-array
+* shorts
+* TODO shuffle
+* shutdown-agents
+* slurp
+* DONE some
+* DONE some-fn
+* DONE sort
+* DONE sort-by
+* TODO sorted-map
+* TODO sorted-map-by
+* TODO sorted-set
+* TODO sorted-set-by
+* TODO sorted?
+* TODO special-symbol?
+* spit
+* DONE split-at
+* DONE split-with
+* DONE str
+* DONE string?
+* struct
+* struct-map
+* DONE subs
+* TODO subseq
+* DONE subvec
+* TODO supers
+* DONE swap!
+* DONE symbol
+* DONE symbol?
+* sync
+* DONE take
+* DONE take-last
+* DONE take-nth
+* DONE take-while
+* test
+* the-ns
+* thread-bound?
+* DONE time
+* DONE to-array
+* DONE to-array-2d
+* DONE trampoline
+* DONE transient
+* DONE tree-seq
+* DONE true?
+* DONE type - returns JS constructor
+* TODO unchecked-add
+* TODO unchecked-add-int
+* TODO unchecked-byte
+* TODO unchecked-char
+* TODO unchecked-dec
+* TODO unchecked-dec-int
+* TODO unchecked-divide-int
+* TODO unchecked-double
+* TODO unchecked-float
+* TODO unchecked-inc
+* TODO unchecked-inc-int
+* TODO unchecked-int
+* TODO unchecked-long
+* TODO unchecked-multiply
+* TODO unchecked-multiply-int
+* TODO unchecked-negate
+* TODO unchecked-negate-int
+* TODO unchecked-remainder-int
+* TODO unchecked-short
+* TODO unchecked-subtract
+* TODO unchecked-subtract-int
+* DONE underive
+* unquote
+* unquote-splicing
+* DONE update-in
+* update-proxy
+* use
+* DONE val
+* DONE vals
+* var-get
+* var-set
+* var?
+* DONE vary-meta
+* DONE vec
+* DONE vector
+* vector-of
+* DONE vector?
+* DONE when
+* DONE when-first
+* DONE when-let
+* DONE when-not
+* DONE while
+* with-bindings
+* with-bindings*
+* with-in-str
+* with-loading-context
+* TODO with-local-vars
+* DONE with-meta
+* with-open
+* with-out-str
+* with-precision
+* with-redefs
+* with-redefs-fn
+* TODO xml-seq
+* DONE zero?
+* DONE zipmap
