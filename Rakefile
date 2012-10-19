@@ -9,11 +9,11 @@ task :bootstrap do
 
   $stdout.print "Bootrapping ClojureScript"
 
-# command to download and create jar archives
+  # command to download and create jar archives
   cmd = "#{CLOJURESCRIPT_HOME}/script/bootstrap"
   %x( #{cmd} )
 
-# removes unnecessary google clojure directory
+  # removes unnecessary temporary directory to create google closure jar archives
   require 'fileutils'
   FileUtils.rm_rf File.join(File.dirname(__FILE__), './closure')
 end
