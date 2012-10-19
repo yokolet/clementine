@@ -11,8 +11,8 @@ Gem::Specification.new do |s|
   s.summary     = %q{clojurescript tilt template gem}
   s.description = %q{clojurescript tilt template gem and available to use on Rails asset pipeline.}
 
-  s.files         = `git ls-files`.split("\n")
-  s.extensions    = ['ext/clementine/extconf.rb']
+  s.files         = `git ls-files`.split($/)
+  s.extensions    = ['Rakefile']
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
