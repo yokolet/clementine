@@ -1,9 +1,8 @@
 require "java"
 
 $: << CLOJURESCRIPT_LIB
-require 'clojure'   # loads clojure.jar
 
-%w{compiler.jar goog.jar js.jar}.each {|name| $CLASSPATH << CLOJURESCRIPT_LIB + name}
+%w{clojure.jar compiler.jar goog.jar js.jar}.each {|name| $CLASSPATH << CLOJURESCRIPT_LIB + name}
 %w{clj cljs}.each {|path| $CLASSPATH << CLOJURESCRIPT_HOME + "/src/" + path}
 
 require 'clementine/clojurescript_engine/base'
