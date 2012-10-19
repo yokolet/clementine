@@ -23,6 +23,9 @@ Installation
 gem install clementine
 ```
 
+While installing this gem, you'll see a confusing phrase, "Installing clementine (0.0.2) with native extensions."
+This means clementine is bootstrappping ClojureScript. Clementine never relies on any C libraries.
+
 Configuration
 -----------
 
