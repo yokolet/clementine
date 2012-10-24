@@ -2,8 +2,7 @@ Clementine
 ====
 
 * https://github.com/yokolet/clementine
-* http://yokolet.blogspot.com/2011/11/clojurescript-on-rails-asset-pipeline.html
-* http://yokolet.blogspot.com/2011/11/tilt-template-for-clojurescript.html
+* http://yokolet.blogspot.com/2012/10/clementine-gem-clojurescript-on-rails.html
 
 Description
 -----------
