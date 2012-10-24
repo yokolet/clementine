@@ -15,7 +15,7 @@ module Clementine
     end
 
     def compile
-      @options = Clementine.options if @options.empty?
+      @options = default_opts.merge(Clementine.options) if Clementine.options
       begin
         cmd = %Q{#{command} #{@file} '#{convert_options(@options)}' 2>&1}
         result = `#{cmd}`

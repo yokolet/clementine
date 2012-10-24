@@ -19,7 +19,7 @@ module Clementine
     end
 
     def compile
-      @options = Clementine.options if @options.empty?
+      @options = default_opts.merge(Clementine.options) if Clementine.options
       cl_opts = PersistentHashMap.create(convert_options(@options))
       RT.loadResourceScript("cljs/closure.clj")
       builder = RT.var("cljs.closure", "build")
@@ -29,7 +29,6 @@ module Clementine
     #private
     def convert_options(options)
       opts = {}
-      options = options.empty? ? default_opts : options
       options.each do |k, v|
         cl_key = Keyword.intern(Clementine.ruby2clj(k.to_s))
         case 
