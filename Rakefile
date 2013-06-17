@@ -4,7 +4,7 @@ task :default => :bootstrap
 
 task :bootstrap do
   # clojurescript home
-  CLOJURESCRIPT_HOME = File.join(File.dirname(__FILE__), "ext/clojure-clojurescript-bef56a7")
+  CLOJURESCRIPT_HOME = File.join(File.dirname(__FILE__), "ext/clojure-clojurescript-16bf7d9")
 
   $stdout.print "Bootrapping ClojureScript"
 
