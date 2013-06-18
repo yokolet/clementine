@@ -1,7 +1,6 @@
 require "java"
 
 $: << CLOJURESCRIPT_LIB
-Dir.glob(CLOJURESCRIPT_LIB + '*.jar').each{|lib| CLASSPATH << lib}
 %w{clj cljs}.each {|path| $CLASSPATH << CLOJURESCRIPT_HOME + "/src/" + path}
 
 require 'clementine/clojurescript_engine/base'
