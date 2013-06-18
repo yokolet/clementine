@@ -1,5 +1,6 @@
 CLASSPATH = []
-%w{clojure.jar compiler.jar goog.jar js.jar}.each {|name| CLASSPATH << CLOJURESCRIPT_LIB + name}
+
+Dir.glob(CLOJURESCRIPT_LIB + '*.jar').each{|lib| CLASSPATH << lib}
 %w{clj cljs}.each {|path| CLASSPATH << CLOJURESCRIPT_HOME + "/src/" + path}
 
 require 'clementine/clojurescript_engine/base'
@@ -17,7 +18,7 @@ module Clementine
     def compile
       @options = default_opts.merge(Clementine.options) if Clementine.options
       begin
-        cmd = %Q{#{command} #{@file} '#{convert_options(@options)}' 2>&1}
+        cmd = %Q{#{command} '#{@file}' '#{convert_options(@options)}' 2>&1}
         result = `#{cmd}`
       rescue Exception
         raise Error, "compression failed: #{result || $!}"
