@@ -1,5 +1,6 @@
 CLASSPATH = []
 
+Dir.glob(CLOJURESCRIPT_HOME + '/lib/*.jar').each {|lib| CLASSPATH << lib}
 %w{clj cljs}.each {|path| CLASSPATH << CLOJURESCRIPT_HOME + "/src/" + path}
 
 require 'clementine/clojurescript_engine/base'
@@ -47,7 +48,7 @@ module Clementine
         setup_classpath_for_ng
         [nailgun_prefix, 'clojure.main', "#{CLOJURESCRIPT_HOME}/bin/cljsc.clj"].flatten.join(' ')
       else
-        ["java", '-cp', "\"#{@classpath.join ":"}\"", 'clojure.main', "#{CLOJURESCRIPT_HOME}/bin/cljsc.clj"].flatten.join(' ')
+        ["#{CLOJURESCRIPT_HOME}/bin/cljsc"].flatten.join(' ')
       end
     end
 
