@@ -26,6 +26,9 @@ module Clementine
 
     #private
     def convert_options(options)
+      if options[:output_dir].blank?
+        options[:output_dir] = Dir.pwd + '/tmp/cljs'
+      end
       opts = {}
       options.each do |k, v|
         cl_key = Keyword.intern(Clementine.ruby2clj(k.to_s))
