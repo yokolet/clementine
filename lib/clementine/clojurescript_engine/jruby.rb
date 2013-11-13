@@ -2,7 +2,6 @@ require "java"
 
 $: << CLOJURESCRIPT_LIB
 
-%w{clojure.jar compiler.jar goog.jar js.jar}.each {|name| $CLASSPATH << CLOJURESCRIPT_LIB + name}
 %w{clj cljs}.each {|path| $CLASSPATH << CLOJURESCRIPT_HOME + "/src/" + path}
 
 require 'clementine/clojurescript_engine/base'
@@ -28,6 +27,7 @@ module Clementine
 
     #private
     def convert_options(options)
+      options[:output_dir] = Dir.pwd + '/tmp/cljs' if options[:output_dir].blank?
       opts = {}
       options.each do |k, v|
         cl_key = Keyword.intern(Clementine.ruby2clj(k.to_s))
