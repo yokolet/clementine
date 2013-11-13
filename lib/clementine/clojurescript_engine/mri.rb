@@ -1,5 +1,5 @@
 CLASSPATH = []
-%w{clojure.jar compiler.jar goog.jar js.jar}.each {|name| CLASSPATH << CLOJURESCRIPT_LIB + name}
+
 %w{clj cljs}.each {|path| CLASSPATH << CLOJURESCRIPT_HOME + "/src/" + path}
 
 require 'clementine/clojurescript_engine/base'
@@ -17,7 +17,7 @@ module Clementine
     def compile
       @options = default_opts.merge(Clementine.options) if Clementine.options
       begin
-        cmd = %Q{#{command} #{@file} '#{convert_options(@options)}' 2>&1}
+        cmd = %Q{#{command} #{File.dirname(@file)} '#{convert_options(@options)}' 2>&1}
         result = `#{cmd}`
       rescue Exception
         raise Error, "compression failed: #{result || $!}"
@@ -43,16 +43,19 @@ module Clementine
     end
 
     def command
+      lib_dir = Dir.pwd + '/app/assets/javascripts'
       if defined? Nailgun
+        CLASSPATH << lib_dir
         setup_classpath_for_ng
         [nailgun_prefix, 'clojure.main', "#{CLOJURESCRIPT_HOME}/bin/cljsc.clj"].flatten.join(' ')
       else
-        ["java", '-cp', "\"#{@classpath.join ":"}\"", 'clojure.main', "#{CLOJURESCRIPT_HOME}/bin/cljsc.clj"].flatten.join(' ')
+        [CLOJURESCRIPT_HOME + '/bin/cljsc -cp ' + lib_dir].flatten.join(' ')
       end
     end
 
     # private
     def convert_options(options)
+      options[:output_dir] = Dir.pwd + '/tmp/cljs' if options[:output_dir].blank?
       opts = ""
       options.each do |k, v|
         cl_key = ":" + Clementine.ruby2clj(k.to_s)

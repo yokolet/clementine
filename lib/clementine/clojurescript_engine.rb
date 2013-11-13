@@ -1,4 +1,4 @@
-CLOJURESCRIPT_HOME = File.join(File.dirname(__FILE__), "../../ext/clojure-clojurescript-bef56a7")
+CLOJURESCRIPT_HOME = File.join(File.dirname(__FILE__), "../../ext/clojure-clojurescript-3de69af")
 CLOJURESCRIPT_LIB = File.join(File.dirname(__FILE__), "../")
 
 if defined?(RUBY_ENGINE) && RUBY_ENGINE == "jruby"
