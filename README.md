@@ -56,7 +56,7 @@ Available options:
 
 *note*<br/>
 If you want to see a readable JavaScript code on the browser,
-set :whitespace for :optimazations and true for :pretty_print in
+set :whitespace for :optimizations and true for :pretty_print in
 ${Rails.root}/config/initializer/clementine.rb like the example above.
 
 *note*<br/>
